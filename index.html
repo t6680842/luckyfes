@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: sans-serif;
-            background-color: #f5fbe4;
+            background-color: #EEF2B7;
             margin: 0;
             padding: 20px;
         }
@@ -125,6 +125,28 @@
             margin-right: 34px;
             /* backボタン分のバランス */
         }
+
+        .check-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #2ecc71;
+            position: relative;
+            margin-right: 8px;
+        }
+
+        .check-icon::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 6px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
     </style>
 </head>
 
@@ -148,19 +170,19 @@
     <div class="ticket">
         <div class="artist" contenteditable="true">つばきファクトリー</div>
         <div class="ticket-number" contenteditable="true"><span>Ticket No.</span>0032</div>
-        <div class="price"><span class="checkmark">✔</span> ¥500</div>
+        <div class="price"><span class="check-icon"></span> ¥ 500</div>
     </div>
 
     <div class="ticket">
         <div class="artist" contenteditable="true">日向坂46</div>
         <div class="ticket-number" contenteditable="true"><span>Ticket No.</span>0401</div>
-        <div class="price"><span class="checkmark">✔</span> ¥500</div>
+        <div class="price"><span class="check-icon"></span> ¥ 500</div>
     </div>
 
     <div class="ticket">
         <div class="artist" contenteditable="true">私立恵比寿中学</div>
         <div class="ticket-number" contenteditable="true"><span>Ticket No.</span>0170</div>
-        <div class="price"><span class="checkmark">✔</span> ¥500</div>
+        <div class="price"><span class="check-icon"></span> ¥ 500</div>
     </div>
 
     <div class="button-area">

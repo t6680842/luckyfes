@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>前方エリア優先入場券</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f5fbe4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .ticket {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .artist {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .ticket-number {
+            font-size: 22px;
+            color: #2ecc71;
+            font-weight: bold;
+            background-color: #f8f8f8;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .ticket-number span {
+            font-size: 12px;
+            color: #2ecc71;
+            margin-right: 5px;
+        }
+
+        .price {
+            color: #000;
+            font-size: 16px;
+        }
+
+        .checkmark {
+            display: inline-block;
+            background-color: #2ecc71;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        .button-area {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button-area button {
+            width: 100%;
+            max-width: 1000px;
+            padding: 12px 0;
+            margin: 10px 0;
+            font-size: 16px;
+            background-color: white;
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-area button:hover {
+            background-color: #e8ffe8;
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 0;
+            margin: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            height: 60px;
+            padding: 0 16px;
+        }
+
+        .back-button {
+            font-size: 24px;
+            color: #2ecc71;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+            margin-right: 34px;
+            /* backボタン分のバランス */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixed-header">
+        <div class="header-container">
+            <div class="back-button">＜</div>
+            <div class="title">前方エリア優先入場券</div>
+        </div>
+    </div>
+    <div style="height: 60px;"></div>
+
+
+    <div class="note">
+        抽選の結果、以下のアーティストが当選されました。当日は、前方エリア優先入場待機エリアでこの画面をご提示ください。<br><br>
+        ※同行者のメールアドレスを設定した場合、その方のアプリの同画面にも結果が反映されています。
+    </div>
+    <div style="margin: 20px 0 10px;" contenteditable="true">8/9（土）</div>
+    <hr style="border: none; border-top: 0.5px solid #ccc; margin: 10px 0 20px;">
+
+    <div class="ticket">
+        <div class="artist" contenteditable="true">つばきファクトリー</div>
+        <div class="ticket-number" contenteditable="true"><span>Ticket No.</span>0032</div>
+        <div class="price"><span class="checkmark">✔</span> ¥500</div>
+    </div>
+
+    <div class="ticket">
+        <div class="artist" contenteditable="true">日向坂46</div>
+        <div class="ticket-number" contenteditable="true"><span>Ticket No.</span>0401</div>
+        <div class="price"><span class="checkmark">✔</span> ¥500</div>
+    </div>
+
+    <div class="ticket">
+        <div class="artist" contenteditable="true">私立恵比寿中学</div>
+        <div class="ticket-number" contenteditable="true"><span>Ticket No.</span>0170</div>
+        <div class="price"><span class="checkmark">✔</span> ¥500</div>
+    </div>
+
+    <div class="button-area">
+        <button>購入する</button>
+        <button>戻る</button>
+    </div>
+
+</body>
+
+</html>

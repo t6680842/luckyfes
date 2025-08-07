@@ -25,6 +25,7 @@
       margin-bottom: 15px;
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
       text-align: center;
+      border-radius: 10px;
     }
 
     .artist {
@@ -145,6 +146,29 @@
       transform: rotate(45deg);
     }
   </style>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const fields = document.querySelectorAll("[contenteditable][id]");
+      fields.forEach(field => {
+        const saved = localStorage.getItem(field.id);
+        if (saved !== null) field.innerText = saved;
+        field.addEventListener("input", () => {
+          localStorage.setItem(field.id, field.innerText);
+        });
+      });
+
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const MM = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      const ss = String(now.getSeconds()).padStart(2, '0');
+      const ts = `${yyyy}/${MM}/${dd} ${hh}:${mm}:${ss}`;
+      const regTime = document.getElementById("reg-time");
+      if (regTime) regTime.textContent = ts;
+    });
+  </script>
 </head>
 
 <body>
@@ -160,27 +184,27 @@
     抽選の結果、以下のアーティストが当選されました。当日は、前方エリア優先入場待機エリアでこの画面をご提示ください。<br><br>
     ※同行者のメールアドレスを設定した場合、その方のアプリの同画面にも結果が反映されています。
   </div>
-  <div style="margin: 20px 0 10px;" contenteditable="true" style="font-size: 14px">8/9（土）</div>
+  <p id="date" style="margin: 20px 0 10px;" contenteditable="true" style="font-size: 14px">8/9（土）</p>
   <hr style="border: none; border-top: 0.5px solid #ccc; margin: 10px 0 20px;">
 
   <div class="ticket">
-    <div class="artist" contenteditable="true">つばきファクトリー</div>
-    <div class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span style="font-size: 25px;"
-        contenteditable="true">0001</div>
+    <p id="artist1" contenteditable="true" class="artist">つばきファクトリー</p>
+    <p id="ticket-number1" class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span
+        style="font-size: 25px;" contenteditable="true">0001</p>
     <div class="price"><span class="check-icon"></span> ¥ 500</div>
   </div>
 
   <div class="ticket">
-    <div class="artist" contenteditable="true">日向坂46</div>
-    <div class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span style="font-size: 25px;"
-        contenteditable="true">0010</div>
+    <p id="artist2" contenteditable="true" class="artist">日向坂46</p>
+    <p id="ticket-number2" class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span
+        style="font-size: 25px;" contenteditable="true">0010</p>
     <div class="price"><span class="check-icon"></span> ¥ 500</div>
   </div>
 
   <div class="ticket">
-    <div class="artist" contenteditable="true">私立恵比寿中学</div>
-    <div class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span style="font-size: 25px;"
-        contenteditable="true">0100</div>
+    <p id="artist3" contenteditable="true" class="artist">私立恵比寿中学</p>
+    <p id="ticket-number3" class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span
+        style="font-size: 25px;" contenteditable="true">0100</p>
     <div class="price"><span class="check-icon"></span> ¥ 500</div>
   </div>
 

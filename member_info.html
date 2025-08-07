@@ -154,9 +154,17 @@
       margin-right: 14px;
     }
   </style>
-
   <script>
-    window.onload = function () {
+    window.addEventListener("DOMContentLoaded", () => {
+      const fields = document.querySelectorAll("[contenteditable][id]");
+      fields.forEach(field => {
+        const saved = localStorage.getItem(field.id);
+        if (saved !== null) field.innerText = saved;
+        field.addEventListener("input", () => {
+          localStorage.setItem(field.id, field.innerText);
+        });
+      });
+
       const now = new Date();
       const yyyy = now.getFullYear();
       const MM = String(now.getMonth() + 1).padStart(2, '0');
@@ -164,8 +172,10 @@
       const hh = String(now.getHours()).padStart(2, '0');
       const mm = String(now.getMinutes()).padStart(2, '0');
       const ss = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById("reg-time").textContent = `${yyyy}/${MM}/${dd} ${hh}:${mm}:${ss}`;
-    }
+      const ts = `${yyyy}/${MM}/${dd} ${hh}:${mm}:${ss}`;
+      const regTime = document.getElementById("reg-time");
+      if (regTime) regTime.textContent = ts;
+    });
   </script>
 </head>
 
@@ -183,7 +193,7 @@
       <span class="check-icon"></span><span class="success">会員登録完了</span>
     </div>
     <div class="label" id="reg-time"></div>
-    <div class="value" style="margin-top: 10px;" contenteditable="true">佐藤 太郎 様</div>
+    <div id="name-kanji" contenteditable="true" class="value" style="margin-top: 10px;">佐藤 太郎 様</div>
     <span class="tick-icon"></span>
     <span style="color: black;">連絡先入力済み</span>
     <div class="small-note">※当日本人確認する場合がございます。</div>
@@ -192,26 +202,26 @@
   <div class="label-spacer"></div>
   <div class="info-section">
     <p class="label">お名前</p>
-    <p class="value" contenteditable="true">佐藤　太郎</p>
-    <p class="value" contenteditable="true">サトウ　タロウ</p>
+    <p id="name-kanji2" contenteditable="true" class="value">佐藤　太郎</p>
+    <p id="name-kana" contenteditable="true" class="value">サトウ　タロウ</p>
 
     <div class="label-spacer"></div>
     <p class="label">生年月日</p>
-    <p class="value" contenteditable="true">1990年01月01日</p>
+    <p id="birthday" contenteditable="true" class="value">1990年01月01日</p>
     <div class="label-spacer"></div>
     <p class="label">住所</p>
-    <p class="value" contenteditable="true">1001234</p>
-    <p class="value" contenteditable="true">東京都</p>
-    <p class="value" contenteditable="true">中央区XX-XX-XX</p>
+    <p id="zipcode" contenteditable="true" class="value">1001001</p>
+    <p id="prefecture" contenteditable="true" class="value">東京都</p>
+    <p id="address" contenteditable="true" class="value">渋谷区1-2-3</p>
     <div class="label-spacer"></div>
     <p class="label">電話番号</p>
-    <p class="value" contenteditable="true">09012345678</p>
+    <p id="phone" contenteditable="true" class="value">09012345678</p>
     <div class="label-spacer"></div>
     <p class="label">メールアドレス</p>
-    <p class="value" contenteditable="true">xxx@gmail.com</p>
+    <p id="email" contenteditable="true" class="value">xxx@gmail.com</p>
     <div class="label-spacer"></div>
     <p class="label">チケット購入メールアドレス</p>
-    <p class="value" contenteditable="true">xxx@gmail.com</p>
+    <p id="ticket-email" contenteditable="true" class="value">xxx@gmail.com</p>
   </div>
 
   <div class="button-area">

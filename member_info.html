@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>会員登録情報</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #F2F2F2;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .back-button {
+      font-size: 24px;
+      color: #43B033;
+      padding: 0 16px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-left: -20px;
+    }
+
+    .header-title {
+      font-size: 18px;
+      flex: 1;
+      text-align: center;
+      margin-right: 40px;
+    }
+
+    .spacer {
+      height: 60px;
+    }
+
+    .label-spacer {
+      height: 12px;
+    }
+
+    .card {
+      background-color: #F2F2F2;
+      margin: 16px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .card .success {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .card .check-icon {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: #43B033;
+      position: relative;
+      margin-top: -6px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .card .check-icon::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 8px;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .info-section {
+      padding: 0px;
+    }
+
+    .info-section p {
+      margin: 8px 0;
+    }
+
+    .label {
+      font-size: 13px;
+      color: #333;
+    }
+
+    .value {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .highlight {
+      color: #43B033;
+      font-size: 14px;
+    }
+
+    .small-note {
+      font-size: 12px;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .underline {
+      border-bottom: 1px solid black;
+      display: inline-block;
+      padding-bottom: 2px;
+    }
+
+    .button-area {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .button-area button {
+      width: 100%;
+      height: 60px;
+      padding: 12px 0;
+      margin: 10px 0;
+      font-size: 16px;
+      background-color: #43B033;
+      border: 1px solid white;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button-area button:hover {
+      background-color: #e8ffe8;
+    }
+
+    .tick-icon {
+      display: inline-block;
+      width: 10px;
+      height: 20px;
+      border: solid #43B033;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+      margin-top: 2px;
+      margin-right: 14px;
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const MM = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      const ss = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById("reg-time").textContent = `${yyyy}/${MM}/${dd} ${hh}:${mm}:${ss}`;
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="header-container"><a href="index.html" class="back-button" style="text-decoration: none;">＜</a></div>
+    <div class="header-title">会員登録情報</div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="card">
+    <div style="margin-bottom: 8px;">
+      <span class="check-icon"></span><span class="success">会員登録完了</span>
+    </div>
+    <div class="label" id="reg-time"></div>
+    <div class="value" style="margin-top: 10px;" contenteditable="true">佐藤 太郎 様</div>
+    <span class="tick-icon"></span>
+    <span style="color: black;">連絡先入力済み</span>
+    <div class="small-note">※当日本人確認する場合がございます。</div>
+  </div>
+
+  <div class="label-spacer"></div>
+  <div class="info-section">
+    <p class="label">お名前</p>
+    <p class="value" contenteditable="true">佐藤　太郎</p>
+    <p class="value" contenteditable="true">サトウ　タロウ</p>
+
+    <div class="label-spacer"></div>
+    <p class="label">生年月日</p>
+    <p class="value" contenteditable="true">1990年01月01日</p>
+    <div class="label-spacer"></div>
+    <p class="label">住所</p>
+    <p class="value" contenteditable="true">1001234</p>
+    <p class="value" contenteditable="true">東京都</p>
+    <p class="value" contenteditable="true">中央区XX-XX-XX</p>
+    <div class="label-spacer"></div>
+    <p class="label">電話番号</p>
+    <p class="value" contenteditable="true">09012345678</p>
+    <div class="label-spacer"></div>
+    <p class="label">メールアドレス</p>
+    <p class="value" contenteditable="true">xxx@gmail.com</p>
+    <div class="label-spacer"></div>
+    <p class="label">チケット購入メールアドレス</p>
+    <p class="value" contenteditable="true">xxx@gmail.com</p>
+  </div>
+
+  <div class="button-area">
+    <button>変更はこちら</button>
+  </div>
+
+</body>
+
+</html>

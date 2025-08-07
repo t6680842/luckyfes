@@ -4,90 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>前方エリア優先入場券</title>
+    <title>設定</title>
     <style>
         body {
             font-family: sans-serif;
-            background-color: #EEF2B7;
             margin: 0;
-            padding: 20px;
+            background-color: #f4f4f4;
         }
 
-        h1 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .ticket {
-            background-color: #F2F2F2;
-            padding: 30px;
-            margin-bottom: 15px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .artist {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .ticket-number {
-            font-size: 22px;
-            color: #43B033;
-            font-weight: bold;
-            background-color: white;
-            display: inline-block;
-            padding: 8px 30px;
-            margin-bottom: 10px;
-        }
-
-        .ticket-number span {
-            font-size: 12px;
-            color: #43B033;
-            margin-right: 5px;
-        }
-
-        .price {
-            color: #000;
-            font-size: 16px;
-        }
-
-        .checkmark {
-            display: inline-block;
-            background-color: #43B033;
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
-            font-size: 14px;
-            margin-right: 8px;
-        }
-
-        .button-area {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .button-area button {
+        .header {
+            position: fixed;
+            top: 0;
             width: 100%;
             height: 60px;
-            max-width: 1000px;
-            padding: 12px 0;
-            margin: 10px 0;
-            font-size: 16px;
-            background-color: white;
-            border: 1px solid #43B033;
-            color: #43B033;
-            border-radius: 4px;
-            cursor: pointer;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
 
-        .button-area button:hover {
-            background-color: #e8ffe8;
+        .back-button {
+            font-size: 24px;
+            color: #43B033;
+            padding: 0 16px;
+            cursor: pointer;
         }
 
         .fixed-header {
@@ -124,72 +65,106 @@
             /* backボタン分のバランス */
         }
 
-        .check-icon {
-            display: inline-block;
-            width: 20px;
+        .spacer {
             height: 20px;
-            border-radius: 50%;
-            background-color: #43B033;
-            position: relative;
-            margin-right: 8px;
-            vertical-align: middle;
         }
 
-        .check-icon::after {
+        .section {
+            margin-top: 16px;
+            padding: 0 16px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .item {
+            background-color: white;
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .toggle {
+            width: 40px;
+            height: 22px;
+            background-color: #ddd;
+            border-radius: 11px;
+            position: relative;
+        }
+
+        .toggle::before {
             content: "";
             position: absolute;
-            top: 4px;
-            left: 6px;
-            width: 6px;
-            height: 10px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .arrow {
+            color: #43B033;
         }
     </style>
 </head>
 
 <body>
+
     <div class="fixed-header">
         <div class="header-container">
             <div class="back-button">＜</div>
-            <div class="title">前方エリア優先入場券</div>
+            <div class="title">設定</div>
         </div>
     </div>
     <div style="height: 60px;"></div>
 
+    <div class="spacer"></div>
 
-    <div class="note" style="font-size: 14px">
-        抽選の結果、以下のアーティストが当選されました。当日は、前方エリア優先入場待機エリアでこの画面をご提示ください。<br><br>
-        ※同行者のメールアドレスを設定した場合、その方のアプリの同画面にも結果が反映されています。
-    </div>
-    <div style="margin: 20px 0 10px;" contenteditable="true" style="font-size: 14px">8/9（土）</div>
-    <hr style="border: none; border-top: 0.5px solid #ccc; margin: 10px 0 20px;">
-
-    <div class="ticket">
-        <div class="artist" contenteditable="true">つばきファクトリー</div>
-        <div class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span style="font-size: 25px;"
-                contenteditable="true">0001</div>
-        <div class="price"><span class="check-icon"></span> ¥ 500</div>
+    <div class="section">
+        <div class="section-title">通知設定</div>
+        <div class="item">
+            <span>ニュース</span>
+            <div class="toggle"></div>
+        </div>
     </div>
 
-    <div class="ticket">
-        <div class="artist" contenteditable="true">日向坂46</div>
-        <div class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span style="font-size: 25px;"
-                contenteditable="true">0010</div>
-        <div class="price"><span class="check-icon"></span> ¥ 500</div>
+    <div class="section">
+        <div class="section-title">アカウント情報</div>
+        <div class="item">
+            <span>会員登録情報</span>
+            <span class="arrow">＞</span>
+        </div>
+        <a href="ticket_page.html" class="item" style="text-decoration: none; color: inherit;">
+            <span>前方エリア優先入場券</span>
+            <span class="arrow">＞</span>
+        </a>
     </div>
 
-    <div class="ticket">
-        <div class="artist" contenteditable="true">私立恵比寿中学</div>
-        <div class="ticket-number"><span style="font-weight: normal;">Ticket No.</span><span style="font-size: 25px;"
-                contenteditable="true">0100</div>
-        <div class="price"><span class="check-icon"></span> ¥ 500</div>
+    <div class="section">
+        <div class="section-title">公式sns</div>
+        <div class="item"><span>TikTok</span><span class="arrow">＞</span></div>
+        <div class="item"><span>X</span><span class="arrow">＞</span></div>
+        <div class="item"><span>Instagram</span><span class="arrow">＞</span></div>
+        <div class="item"><span>Facebook</span><span class="arrow">＞</span></div>
+        <div class="item"><span>YouTube</span><span class="arrow">＞</span></div>
     </div>
 
-    <div class="button-area">
-        <button>購入する</button>
-        <button>戻る</button>
+    <div class="section">
+        <div class="section-title">その他</div>
+        <div class="item"><span>意見箱</span><span class="arrow">＞</span></div>
+        <div class="item"><span>プライバシーポリシー</span><span class="arrow">＞</span></div>
+        <div class="item"><span>ライセンス</span><span class="arrow">＞</span></div>
     </div>
 
 </body>
